@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // 导入必要的类
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
