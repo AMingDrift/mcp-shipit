@@ -1,0 +1,19 @@
+{
+  "name": "mcp-shipit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMingDrift/mcp-shipit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMingDrift/mcp-shipit/issues"
+  },
+  "homepage": "https://github.com/AMingDrift/mcp-shipit#readme"
+}
