@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "mcp-shipit": {
-      "command": "node",
-      "args": ["--no-warnings", "/opt/code/wmc/mcp-shipit/src/entry/index.js"]
-    }
-  }
-}
