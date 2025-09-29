@@ -19,7 +19,7 @@
 ### 提示词
 
 ```
-请使用 shipit 工具将项目中的 [public/uploads] 目录打包上传到 GitHub Release。
+请使用 mcp-shipit 工具将项目中的 [public/uploads] 目录打包上传到 GitHub Release。
 ```
 
 ### @modelcontextprotocol/inspector测试
