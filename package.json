@@ -1,24 +1,42 @@
 {
-    "name": "mcp-shipit",
-    "version": "1.0.0",
-    "description": "",
+    "name": "@amingdrift/mcp-shipit",
+    "version": "1.0.3",
+    "description": "mcp-shipit is a Model Context Protocol (MCP)-based tool that can package specified directories into a ZIP file and upload them to GitHub Release.",
     "main": "./build/index.js",
     "type": "module",
+    "files": [
+        "build/**/*"
+    ],
     "scripts": {
         "test": "node build/test/test-index.js",
         "build": "tsc && chmod u+x build/index.js",
         "start": "node build/index.js",
         "dev": "tsc-watch --onSuccess \"node build/index.js\"",
-        "debug": "pnpm dlx @modelcontextprotocol/inspector"
+        "debug": "pnpm dlx @modelcontextprotocol/inspector",
+        "prepublishOnly": "npm run build"
     },
     "bin": {
         "mcp-shipit": "build/index.js"
+    },
+    "exports": {
+        "node": {
+            "import": "./build/index.js",
+            "require": "./build/index.js"
+        },
+        "default": "./build/index.js"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AMingDrift/mcp-shipit.git"
     },
-    "author": "",
+    "keywords": [
+        "mcp",
+        "github",
+        "release",
+        "upload",
+        "zip"
+    ],
+    "author": "AMingDrift",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/AMingDrift/mcp-shipit/issues"

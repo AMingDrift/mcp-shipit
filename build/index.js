@@ -2,7 +2,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import z from "zod/v3";
-const server = new McpServer({
+export const server = new McpServer({
     name: "mcp-shipit",
     title: "MCP Shipit",
     version: "0.1.0",

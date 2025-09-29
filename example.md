@@ -4,9 +4,11 @@
 {
     "mcpServers": {
         "mcp-shipit": {
-            "command": "node",
-            "args": ["/opt/code/wmc/mcp-shipit/build/index.js"],
+            "command": "npx",
+            "args": ["@amingdrift/mcp-shipit"],
             "env": {
+                "GITHUB_TOKEN": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "GITHUB_OWNER": "AMingDrift",
                 "GITHUB_REPO": "AMingOS"
             }
         }

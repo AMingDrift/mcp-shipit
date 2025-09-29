@@ -15,14 +15,14 @@ mcp-shipit 是一个基于 Model Context Protocol (MCP) 的工具，可以将指
 
 1. 复制`.env.example`文件并重命名为 `.env`：
 
-   ```bash
-   cp .env.example .env
-   ```
+    ```bash
+    cp .env.example .env
+    ```
 
 2. 编辑 `.env` 文件，填写以下信息：
-   - `GITHUB_TOKEN` - 你的 GitHub Personal Access Token
-   - `GITHUB_OWNER` - GitHub 仓库的所有者（用户名或组织名）
-   - `GITHUB_REPO` - GitHub 仓库的名称
+    - `GITHUB_TOKEN` - 你的 GitHub Personal Access Token
+    - `GITHUB_OWNER` - GitHub 仓库的所有者（用户名或组织名）
+    - `GITHUB_REPO` - GitHub 仓库的名称
 
 ### 获取 GitHub Personal Access Token
 
@@ -33,10 +33,16 @@ mcp-shipit 是一个基于 Model Context Protocol (MCP) 的工具，可以将指
 
 ## 使用方法
 
+### 安装
+
+```bash
+npm install @amingdrift/mcp-shipit
+```
+
 ### 启动服务
 
 ```bash
-pnpm mcp
+pnpm start
 ```
 
 这将启动 MCP 服务器，监听来自客户端的请求。
@@ -52,8 +58,8 @@ pnpm mcp
 
 ```json
 {
-  "projectRootDir": "/opt/code/wmc/mcp-shipit",
-  "targetDir": "public"
+    "projectRootDir": "/opt/code/wmc/mcp-shipit",
+    "targetDir": "public"
 }
 ```
 
@@ -83,12 +89,12 @@ pnpm run debug
 
 ```json
 {
-  "mcpServers": {
-    "mcp-shipit": {
-      "command": "node",
-      "args": ["--no-warnings", "/opt/code/wmc/mcp-shipit/src/entry/index.js"]
+    "mcpServers": {
+        "mcp-shipit": {
+            "command": "npx",
+            "args": ["@amingdrift/mcp-shipit"]
+        }
     }
-  }
 }
 ```
 
@@ -114,21 +120,21 @@ pnpm run debug
 
 1. 上传特定目录：
 
-   ```
-   请使用 shipit 工具将项目中的 src/_components 目录打包上传到 GitHub Release。
-   ```
+    ```
+    请使用 shipit 工具将项目中的 src/_components 目录打包上传到 GitHub Release。
+    ```
 
 2. 上传另一个目录：
 
-   ```
-   请将 src/server 目录上传到 GitHub Release 并提供下载链接。
-   ```
+    ```
+    请将 src/server 目录上传到 GitHub Release 并提供下载链接。
+    ```
 
 3. 更详细的请求：
 
-   ```
-   我想把项目的 src/api 目录压缩并上传到 GitHub Release，然后获取下载链接，请帮我完成这个操作。
-   ```
+    ```
+    我想把项目的 src/api 目录压缩并上传到 GitHub Release，然后获取下载链接，请帮我完成这个操作。
+    ```
 
 ### 关键要素
 
