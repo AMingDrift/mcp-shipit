@@ -96,6 +96,50 @@ pnpm run debug
 
 请使用 shipit 工具将项目中的 [public/uploads] 目录打包上传到 GitHub Release。
 
+为了调用 shipit 工具，特别是 [mcp_shipit_upload_to_github_release] 函数，您需要按照以下格式编写提示词：
+
+### 基本格式
+
+```
+请将 [目录路径] 上传到 GitHub Release。
+```
+
+或者更具体地说：
+
+```
+请使用 shipit 工具将项目中的 [相对目录路径] 目录打包上传到 GitHub Release。
+```
+
+### 实际示例
+
+1. 上传特定目录：
+
+   ```
+   请使用 shipit 工具将项目中的 src/_components 目录打包上传到 GitHub Release。
+   ```
+
+2. 上传另一个目录：
+
+   ```
+   请将 src/server 目录上传到 GitHub Release 并提供下载链接。
+   ```
+
+3. 更详细的请求：
+
+   ```
+   我想把项目的 src/api 目录压缩并上传到 GitHub Release，然后获取下载链接，请帮我完成这个操作。
+   ```
+
+### 关键要素
+
+在编写提示词时，应包含以下关键信息：
+
+1. 明确提及要使用的工具（shipit 或 mcp_shipit_upload_to_github_release）
+2. 指定要上传的目录路径（相对于项目根目录）
+3. 可以说明期望的结果（如获取下载链接）
+
+这样编写的提示词能够清楚地传达您的意图，使工具能够正确执行上传操作。
+
 ## 支持的 MCP 客户端
 
 - [LINGMA](https://marketplace.visualstudio.com/items?itemName=Alibaba-Cloud.tongyi-lingma)
