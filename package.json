@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node src/entry/test/test-index.js",
+    "mcp": "node --no-warnings src/entry/index.js",
+    "debug": "pnpm dlx @modelcontextprotocol/inspector"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/AMingDrift/mcp-shipit/issues"
   },
-  "homepage": "https://github.com/AMingDrift/mcp-shipit#readme"
+  "homepage": "https://github.com/AMingDrift/mcp-shipit#readme",
+  "devDependencies": {
+    "@octokit/types": "^15.0.0",
+    "@types/archiver": "^6.0.3",
+    "@types/node": "^24.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.2",
+    "archiver": "^7.0.1",
+    "dotenv": "^17.2.2",
+    "octokit": "^5.0.3",
+    "zod": "^3.25.76"
+  }
 }
