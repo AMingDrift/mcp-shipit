@@ -2,7 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { mcpShipit } from "../utils/index.js";
 
-async function main() {
+async function shitpit() {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     const mcpRootDir = path.resolve(__dirname, "../../");
@@ -20,9 +20,8 @@ async function main() {
         `Successfully uploaded ${targetDir} to GitHub Release. \nDownload URL: \t${downloadUrl}\nZip Filename: \t${zipFilename}`
     );
 }
-
-// 确保调用 main 函数并处理其错误
-main().catch((err) => {
-    console.error("Main function failed:", err);
+// 确保调用 shitpit 函数并处理其错误
+shitpit().catch((err) => {
+    console.error("Shitpit function failed:", err);
     process.exit(1);
 });

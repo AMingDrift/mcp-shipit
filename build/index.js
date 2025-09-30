@@ -58,6 +58,65 @@ server.registerTool("upload_to_github_release", {
         };
     }
 });
+server.registerTool("download_from_github_release", {
+    title: "Download from GitHub Release",
+    description: "Downloads a specified file from a GitHub Release and extracts it to a target directory.",
+    inputSchema: {
+        projectRootDir: z
+            .string()
+            .describe("The absolute path to the project root directory."),
+        targetDir: z
+            .string()
+            .describe("The relative path to the target directory from the project root."),
+        filename: z
+            .string()
+            .describe("The name of the file to download from GitHub Release."),
+        mode: z
+            .enum(["overwrite", "merge"])
+            .optional()
+            .default("overwrite")
+            .describe("Download mode: overwrite or merge.")
+    }
+}, async ({ projectRootDir, targetDir, filename, mode }) => {
+    // 动态导入 mcpUnshipit 函数
+    const { mcpUnshipit, setLoggingCallback } = await import("./utils/index.js");
+    // 设置日志回调函数，将日志通过 MCP 协议发送给客户端
+    setLoggingCallback((message, level) => {
+        // 将 "warn" 映射为 "warning" 以匹配 MCP SDK 的 LoggingLevel 类型
+        const mcpLevel = level === "warn" ? "warning" : level;
+        server.sendLoggingMessage({
+            level: mcpLevel,
+            data: message
+        });
+    });
+    try {
+        // 清理文件名，去除回车、换行、空格等无效字符
+        const cleanFilename = filename.trim().replace(/[\r\n\t]/g, "");
+        const { extractPath } = await mcpUnshipit(projectRootDir, targetDir, cleanFilename, mode);
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: `Successfully downloaded and extracted ${cleanFilename} to ${extractPath}.`
+                }
+            ]
+        };
+    }
+    catch (error) {
+        server.sendLoggingMessage({
+            level: "error",
+            data: `Failed to download file: ${error.message}`
+        });
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: `Failed to download ${filename} from GitHub Release. Error: ${error.message}`
+                }
+            ]
+        };
+    }
+});
 const transport = new StdioServerTransport();
 server.connect(transport);
 // 确保进程不会过早退出

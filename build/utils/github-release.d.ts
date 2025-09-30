@@ -110,3 +110,11 @@ export declare function getOrCreateRelease(tagName?: string): Promise<{
  * @returns Promise<string> 文件下载URL
  */
 export declare function uploadToRelease(releaseId: number, filePath: string, filename: string): Promise<string>;
+/**
+ * 从 GitHub Release 下载文件到项目的 tmp 目录中
+ * @param projectRootDir 项目根目录
+ * @param filename 要下载的文件名（如 xxx.zip）
+ * @param targetDir 目标目录名（仅用于日志记录，实际文件下载到 tmp 目录）
+ * @returns Promise<string> 下载文件的本地路径
+ */
+export declare function downloadFromGithubRelease(projectRootDir: string, filename: string): Promise<string>;

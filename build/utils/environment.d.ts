@@ -13,4 +13,5 @@ export declare function getEnvironmentVariables(): {
     SHIPIT_GITHUB_TOKEN: string | undefined;
     SHIPIT_GITHUB_OWNER: string | undefined;
     SHIPIT_GITHUB_REPO: string | undefined;
+    SHIPIT_GITHUB_TAG: string | undefined;
 };

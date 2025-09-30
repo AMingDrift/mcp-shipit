@@ -1,38 +1,13 @@
 import fs from "fs";
 import { customAlphabet } from "nanoid";
 import path from "path";
-import { zipDirectory } from "./compressor.js";
+import { zipDirectory } from "./archive-utils.js";
 import { checkEnvironmentVariables } from "./environment.js";
 import { getOrCreateRelease, uploadToRelease } from "./github-release.js";
+import { logMessage, setLoggingCallback } from "./log.js";
 import { ensureTempDirectory, validateTargetPath } from "./path-validator.js";
 
-let loggingCallback:
-    | ((message: string, level: "info" | "error" | "debug" | "warn") => void)
-    | null = null;
-
-export function setLoggingCallback(
-    callback: (
-        message: string,
-        level: "info" | "error" | "debug" | "warn"
-    ) => void
-) {
-    loggingCallback = callback;
-}
-
-function logMessage(
-    message: string,
-    level: "info" | "error" | "debug" | "warn" = "info"
-) {
-    if (loggingCallback) {
-        try {
-            loggingCallback(message, level);
-        } catch (err) {
-            console.error("Failed to send log message:", err);
-        }
-    } else {
-        console.log(`[${level.toUpperCase()}] ${message}`);
-    }
-}
+export { setLoggingCallback };
 
 export async function mcpShipit(projectRootDir: string, targetDir: string) {
     try {
@@ -76,7 +51,7 @@ export async function mcpShipit(projectRootDir: string, targetDir: string) {
 
             // 步骤5: 获取或创建GitHub Release
             logMessage("Getting or creating GitHub Release", "info");
-            const release = await getOrCreateRelease("mcp-auto-upload");
+            const release = await getOrCreateRelease();
             logMessage(`GitHub Release ready: ${release.id}`, "info");
 
             // 步骤6: 上传到GitHub Release
