@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/@amingdrift/mcp-shipit.svg)](https://npmjs.org/package/@amingdrift/mcp-shipit)
 [![NPM Downloads](https://img.shields.io/npm/dm/@amingdrift/mcp-shipit.svg)](https://npmjs.org/package/@amingdrift/mcp-shipit)
 
-README.md | [中文](README_zh-CN.md)
+English | [中文](README_zh-CN.md)
 
 mcp-shipit is a [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP)-based tool that can package specified directories into a ZIP file and upload them to GitHub Release.
 
