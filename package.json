@@ -1,6 +1,6 @@
 {
     "name": "@amingdrift/mcp-shipit",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "mcp-shipit is a Model Context Protocol (MCP)-based tool that can package specified directories into a ZIP file and upload them to GitHub Release.",
     "main": "./build/index.js",
     "type": "module",
