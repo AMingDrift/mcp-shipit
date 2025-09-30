@@ -20,9 +20,9 @@ mcp-shipit 是一个基于 Model Context Protocol (MCP) 的工具，可以将指
     ```
 
 2. 编辑 `.env` 文件，填写以下信息：
-    - `GITHUB_TOKEN` - 你的 GitHub Personal Access Token
-    - `GITHUB_OWNER` - GitHub 仓库的所有者（用户名或组织名）
-    - `GITHUB_REPO` - GitHub 仓库的名称
+    - `SHIPIT_GITHUB_TOKEN` - 你的 GitHub Personal Access Token
+    - `SHIPIT_GITHUB_OWNER` - GitHub 仓库的所有者（用户名或组织名）
+    - `SHIPIT_GITHUB_REPO` - GitHub 仓库的名称
 
 ### 获取 GitHub Personal Access Token
 

@@ -7,9 +7,9 @@
             "command": "npx",
             "args": ["@amingdrift/mcp-shipit"],
             "env": {
-                "GITHUB_TOKEN": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "GITHUB_OWNER": "AMingDrift",
-                "GITHUB_REPO": "AMingOS"
+                "SHIPIT_GITHUB_TOKEN": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "SHIPIT_GITHUB_OWNER": "AMingDrift",
+                "SHIPIT_GITHUB_REPO": "AMingOS"
             }
         }
     }

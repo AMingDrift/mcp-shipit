@@ -1,32 +1,40 @@
-import { Octokit } from "octokit";
 import fs from "fs";
-import { GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO } from "./environment.js";
-// 初始化 Octokit 客户端
-const octokit = new Octokit({ auth: GITHUB_TOKEN });
+import { Octokit } from "octokit";
+import { getEnvironmentVariables } from "./environment.js";
+let octokit;
+function initOctokitInstance() {
+    if (!octokit) {
+        const { SHIPIT_GITHUB_TOKEN } = getEnvironmentVariables();
+        // 初始化 Octokit 客户端
+        octokit = new Octokit({ auth: SHIPIT_GITHUB_TOKEN });
+    }
+}
 /**
  * 获取或创建 GitHub Release
  * @param tagName 标签名称
  * @returns Promise<Release> GitHub Release 对象
  */
 export async function getOrCreateRelease(tagName = "mcp-auto-upload") {
+    const { SHIPIT_GITHUB_OWNER, SHIPIT_GITHUB_REPO } = getEnvironmentVariables();
     try {
+        initOctokitInstance();
         const { data: release } = await octokit.rest.repos.getReleaseByTag({
-            owner: GITHUB_OWNER,
-            repo: GITHUB_REPO,
-            tag: tagName,
+            owner: SHIPIT_GITHUB_OWNER,
+            repo: SHIPIT_GITHUB_REPO,
+            tag: tagName
         });
         return release;
     }
     catch (error) {
         if (error.status === 404) {
             const { data: release } = await octokit.rest.repos.createRelease({
-                owner: GITHUB_OWNER,
-                repo: GITHUB_REPO,
+                owner: SHIPIT_GITHUB_OWNER,
+                repo: SHIPIT_GITHUB_REPO,
                 tag_name: tagName,
                 name: "Auto-generated Uploads",
                 body: "Managed by MCP tool",
                 draft: false,
-                prerelease: false,
+                prerelease: false
             });
             return release;
         }
@@ -41,17 +49,19 @@ export async function getOrCreateRelease(tagName = "mcp-auto-upload") {
  * @returns Promise<string> 文件下载URL
  */
 export async function uploadToRelease(releaseId, filePath, filename) {
+    initOctokitInstance();
+    const { SHIPIT_GITHUB_OWNER, SHIPIT_GITHUB_REPO } = getEnvironmentVariables();
     const zipBuffer = fs.readFileSync(filePath);
     const uploadResult = await octokit.rest.repos.uploadReleaseAsset({
-        owner: GITHUB_OWNER,
-        repo: GITHUB_REPO,
+        owner: SHIPIT_GITHUB_OWNER,
+        repo: SHIPIT_GITHUB_REPO,
         release_id: releaseId,
         name: filename,
         data: zipBuffer,
         headers: {
-            'content-type': 'application/zip',
-            'content-length': zipBuffer.length.toString(),
-        },
+            "content-type": "application/zip",
+            "content-length": zipBuffer.length.toString()
+        }
     });
     return uploadResult.data.browser_download_url;
 }

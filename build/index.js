@@ -33,12 +33,12 @@ server.registerTool("upload_to_github_release", {
         });
     });
     try {
-        const downloadUrl = await mcpShipit(projectRootDir, targetDir);
+        const { downloadUrl, zipFilename } = await mcpShipit(projectRootDir, targetDir);
         return {
             content: [
                 {
                     type: "text",
-                    text: `Successfully uploaded ${targetDir} to GitHub Release. Download URL: ${downloadUrl}`
+                    text: `Successfully uploaded ${targetDir} to GitHub Release. \nDownload URL: \t${downloadUrl}\nZip Filename: \t${zipFilename}`
                 }
             ]
         };
