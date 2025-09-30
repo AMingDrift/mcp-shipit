@@ -26,6 +26,7 @@ let SHIPIT_GITHUB_TOKEN: string | undefined;
 let SHIPIT_GITHUB_OWNER: string | undefined;
 let SHIPIT_GITHUB_REPO: string | undefined;
 let SHIPIT_GITHUB_TAG: string | undefined;
+let SHIPIT_PROXY: string | undefined;
 
 /**
  * 检查必要的环境变量是否存在
@@ -55,6 +56,7 @@ export function checkEnvironmentVariables(projectRootDir: string): void {
     SHIPIT_GITHUB_OWNER = process.env.SHIPIT_GITHUB_OWNER;
     SHIPIT_GITHUB_REPO = process.env.SHIPIT_GITHUB_REPO;
     SHIPIT_GITHUB_TAG = process.env.SHIPIT_GITHUB_TAG;
+    SHIPIT_PROXY = process.env.SHIPIT_PROXY;
 
     if (!SHIPIT_GITHUB_TOKEN || !SHIPIT_GITHUB_OWNER || !SHIPIT_GITHUB_REPO) {
         throw new Error(
@@ -70,6 +72,7 @@ export function getEnvironmentVariables() {
         SHIPIT_GITHUB_TOKEN,
         SHIPIT_GITHUB_OWNER,
         SHIPIT_GITHUB_REPO,
-        SHIPIT_GITHUB_TAG
+        SHIPIT_GITHUB_TAG,
+        SHIPIT_PROXY
     };
 }

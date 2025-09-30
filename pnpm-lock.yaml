@@ -11,9 +11,6 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.18.2
         version: 1.18.2
-      '@types/unzipper':
-        specifier: ^0.10.11
-        version: 0.10.11
       archiver:
         specifier: ^7.0.1
         version: 7.0.1
@@ -26,6 +23,9 @@ importers:
       octokit:
         specifier: ^5.0.3
         version: 5.0.3
+      undici:
+        specifier: ^7.16.0
+        version: 7.16.0
       unzipper:
         specifier: ^0.12.3
         version: 0.12.3
@@ -48,6 +48,9 @@ importers:
       '@types/node':
         specifier: ^24.5.2
         version: 24.5.2
+      '@types/unzipper':
+        specifier: ^0.10.11
+        version: 0.10.11
       esbuild:
         specifier: ^0.25.10
         version: 0.25.10
@@ -1506,6 +1509,10 @@ packages:
 
   undici-types@7.12.0:
     resolution: {integrity: sha512-goOacqME2GYyOZZfb5Lgtu+1IDmAlAEu5xnD3+xTzS10hT0vzpf0SPjkXwAw9Jm+4n/mQGDP3LO8CPbYROeBfQ==}
+
+  undici@7.16.0:
+    resolution: {integrity: sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==}
+    engines: {node: '>=20.18.1'}
 
   universal-github-app-jwt@2.2.2:
     resolution: {integrity: sha512-dcmbeSrOdTnsjGjUfAlqNDJrhxXizjAz94ija9Qw8YkZ1uu0d+GoZzyH+Jb9tIIqvGsadUfwg+22k5aDqqwzbw==}
@@ -3057,6 +3064,8 @@ snapshots:
   typescript@5.9.2: {}
 
   undici-types@7.12.0: {}
+
+  undici@7.16.0: {}
 
   universal-github-app-jwt@2.2.2: {}
 

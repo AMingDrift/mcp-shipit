@@ -7,7 +7,7 @@ async function unshitpit() {
     const __dirname = path.dirname(__filename);
     const mcpRootDir = path.resolve(__dirname, "../../");
     const targetDir = "downloaded_public";
-    const zipFilename = "mcp-upload-amingos_src_api-250930-74310.zip"; // 需要替换为实际上传的文件名
+    const zipFilename = "mcp-upload-mcp-shipit_public-250930-35a5e.zip"; // 需要替换为实际上传的文件名
 
     console.log("Environment variables loaded:", {
         SHIPIT_GITHUB_TOKEN: process.env.SHIPIT_GITHUB_TOKEN

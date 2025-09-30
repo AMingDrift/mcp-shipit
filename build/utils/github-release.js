@@ -1,14 +1,28 @@
 import fs from "fs";
 import { Octokit } from "octokit";
 import path from "path";
+import { ProxyAgent, fetch as undiciFetch } from "undici";
 import { getEnvironmentVariables } from "./environment.js";
+import { logMessage } from "./log.js";
 import { ensureTempDirectory } from "./path-validator.js";
 let octokit;
 function initOctokitInstance() {
     if (!octokit) {
-        const { SHIPIT_GITHUB_TOKEN } = getEnvironmentVariables();
-        // 初始化 Octokit 客户端
-        octokit = new Octokit({ auth: SHIPIT_GITHUB_TOKEN });
+        const { SHIPIT_GITHUB_TOKEN, SHIPIT_PROXY } = getEnvironmentVariables();
+        octokit = new Octokit({
+            auth: SHIPIT_GITHUB_TOKEN,
+            request: SHIPIT_PROXY // 如果配置了代理，则添加代理支持
+                ? {
+                    fetch: (url, options) => {
+                        logMessage(`Using proxy: ${SHIPIT_PROXY}`, "debug");
+                        return undiciFetch(url, {
+                            ...options,
+                            dispatcher: new ProxyAgent(SHIPIT_PROXY)
+                        });
+                    }
+                }
+                : undefined
+        });
     }
 }
 /**

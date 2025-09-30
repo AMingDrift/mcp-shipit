@@ -24,6 +24,7 @@ let SHIPIT_GITHUB_TOKEN;
 let SHIPIT_GITHUB_OWNER;
 let SHIPIT_GITHUB_REPO;
 let SHIPIT_GITHUB_TAG;
+let SHIPIT_PROXY;
 /**
  * 检查必要的环境变量是否存在
  * 加载顺序和优先级：
@@ -52,6 +53,7 @@ export function checkEnvironmentVariables(projectRootDir) {
     SHIPIT_GITHUB_OWNER = process.env.SHIPIT_GITHUB_OWNER;
     SHIPIT_GITHUB_REPO = process.env.SHIPIT_GITHUB_REPO;
     SHIPIT_GITHUB_TAG = process.env.SHIPIT_GITHUB_TAG;
+    SHIPIT_PROXY = process.env.SHIPIT_PROXY;
     if (!SHIPIT_GITHUB_TOKEN || !SHIPIT_GITHUB_OWNER || !SHIPIT_GITHUB_REPO) {
         throw new Error(`Missing SHIPIT_GITHUB_TOKEN[${SHIPIT_GITHUB_TOKEN ? "Loaded (hidden)" : "Not loaded"}], SHIPIT_GITHUB_OWNER[${SHIPIT_GITHUB_OWNER}], or SHIPIT_GITHUB_REPO[${SHIPIT_GITHUB_REPO}] in environment`);
     }
@@ -61,7 +63,8 @@ export function getEnvironmentVariables() {
         SHIPIT_GITHUB_TOKEN,
         SHIPIT_GITHUB_OWNER,
         SHIPIT_GITHUB_REPO,
-        SHIPIT_GITHUB_TAG
+        SHIPIT_GITHUB_TAG,
+        SHIPIT_PROXY
     };
 }
 //# sourceMappingURL=environment.js.map
