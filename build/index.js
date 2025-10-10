@@ -3,10 +3,11 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import z from "zod/v3";
+import packageJson from "../package.json" with { type: "json" };
 export const server = new McpServer({
     name: "mcp-shipit",
     title: "MCP Shipit",
-    version: "0.1.0",
+    version: packageJson.version,
     description: "GitHub Release Upload Tool"
 });
 server.registerTool("upload_to_github_release", {
