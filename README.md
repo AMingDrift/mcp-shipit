@@ -7,6 +7,14 @@ English | [中文](README_zh-CN.md)
 
 mcp-shipit is a [Model Context Protocol](https://modelcontextprotocol.io/introduction) (MCP)-based tool that can package specified directories into a ZIP file and upload them to GitHub Release.
 
+## Why This Tool?
+
+This tool was created to solve a common problem in development workflows: sharing test resources (such as mock images, videos, and other large binary files) between multiple development machines.
+
+Often, developers need to share these test resources but don't want to commit them to the git repository, as they can bloat the repository size. Traditional solutions like uploading to cloud drives require manual repetitive operations - download, extract, move to the right place, etc.
+
+With mcp-shipit, you can simply tell your AI programming assistant (like VS Code Copilot, Tongyi Lingma) to "upload the mock resources directory to GitHub Release" or "download the test assets from GitHub Release", and the tool automatically handles the entire process. This makes it seamless to share test resources between multiple development environments.
+
 ## Key Features
 
 - 📦 Package project directories into ZIP files
