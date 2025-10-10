@@ -129,8 +129,8 @@ Please use the mcp-shipit tool to download [filename.zip] from GitHub release to
 - The upload directory must exist and be accessible
 - When downloading, files with the same name will be overwritten, and the original directory will be backed up as `_bak`
 - Proxy can be configured when network is slow
-- Only tested with VS Code Copilot, Tongyi Lingma, and Trae AI programming tools. Other tools like Claude Desktop, Cursor, and Continue can be tried by users
-- Must be used via Agent/Build with MCP to create automated workflows
+- Only tested with VS Code Copilot, Tongyi Lingma, and Trae AI programming tools. Other tools like Claude Desktop and Cursor can be tried by users
+- Must be used via Agent/Builder with MCP to create automated workflows
 
 ## License
 

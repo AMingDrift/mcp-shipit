@@ -129,8 +129,8 @@ VS Code Copilot 配置示例：
 - 上传目录需存在且可访问
 - 下载时同名文件会被覆盖，原目录会备份为 `_bak`
 - 网络慢时可配置代理
-- 仅测试通过了 VS Code Copilot、通义灵码、Trae 三款 AI 编程工具，其他如 Claude Desktop、Cursor、Continue 可自行尝试
-- 必须通过智能体/Agent/Build with MCP 方式使用本工具，实现自动化工作流
+- 仅测试通过了 VS Code Copilot、通义灵码、Trae 三款 AI 编程工具，其他如 Claude Desktop、Cursor 可自行尝试
+- 必须通过智能体/Agent/Builder with MCP 方式使用本工具，实现自动化工作流
 
 ## License
 
