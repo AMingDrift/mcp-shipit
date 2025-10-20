@@ -369,7 +369,7 @@ npm publish --access public
 请使用 mcp-shipit 工具将 public/mock 目录打包上传到 GitHub Release
 ```
 
-![上传示意图](./upload.png)
+![上传示意图](./mcp-upload.png)
 
 **下载文件：**
 
@@ -377,7 +377,7 @@ npm publish --access public
 请使用 mcp-shipit 工具将 mcp-upload-project_public-240930-abcde.zip 从 GitHub release 下载到 downloaded_mock 目录
 ```
 
-![下载示意图](./download.png)
+![下载示意图](./mcp-download.png)
 
 ## 注意事项
 
