@@ -113,7 +113,7 @@ VS Code Copilot 配置示例：
 请使用 mcp-shipit 工具将 [相对目录路径] 打包上传到 GitHub Release
 ```
 
-![上传示意图](./doc/upload.png)
+![上传示意图](./doc/mcp-upload.png)
 
 **下载文件：**
 
@@ -121,7 +121,7 @@ VS Code Copilot 配置示例：
 请使用 mcp-shipit 工具将 [文件名.zip] 从 GitHub release 下载到 [目标目录] [合并|覆盖]
 ```
 
-![下载示意图](./doc/download.png)
+![下载示意图](./doc/mcp-download.png)
 
 ## 注意事项
 

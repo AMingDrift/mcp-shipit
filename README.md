@@ -113,7 +113,7 @@ VS Code Copilot configuration example:
 Please use the mcp-shipit tool to package [relative directory path] and upload it to GitHub Release
 ```
 
-![Upload Illustration](./doc/upload.png)
+![Upload Illustration](./doc/mcp-upload.png)
 
 **Download File:**
 
@@ -121,7 +121,7 @@ Please use the mcp-shipit tool to package [relative directory path] and upload i
 Please use the mcp-shipit tool to download [filename.zip] from GitHub release to [target directory] [merge|overwrite]
 ```
 
-![Download Illustration](./doc/download.png)
+![Download Illustration](./doc/mcp-download.png)
 
 ## Notes
 
